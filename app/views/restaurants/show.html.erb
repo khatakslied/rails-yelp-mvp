@@ -1,22 +1,26 @@
 <h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category.capitalize %></p>
+<p>Location: <%= @restaurant.address %></p>
+<p>Phone Number: <%= @restaurant.phone_number %></p>
+<p>Cuisine: <%= @restaurant.category.capitalize %></p>
 
 <h3>Reviews:</h3>
-<% if @restaurant.reviews.any? %>
-  <% @restaurant.reviews.each do |review| %>
-    <%= review.content %>
-      <% review.rating.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
-      <% (5 - review.rating).times do %>
-        <i class="far fa-star"></i>
-      <% end %>
+<div class="d-flex flex-column">
+  <% if @restaurant.reviews.any? %>
+    <% @restaurant.reviews.each do |review| %>
+      <div class="d-flex flex-row p-2">
+        <%= review.content %>
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No Reviews</p>
   <% end %>
-<% else %>
-  <p>No Reviews</p>
-<% end %>
+</div>
 
 <h3>Add Review</h3>
 <%= simple_form_for [@restaurant, @review] do |f| %>
