@@ -1,9 +1,18 @@
-<h1>Restaurants#index</h1>
+<h1>PokéWorld Restaurants</h1>
 <%= link_to "Add Restaurant", new_restaurant_path %>
 
-<% @restaurants.each do |restaurant| %>
-  <div class="card">
-  <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
-  <p><%= restaurant.category.capitalize %></p>
-  </div>
-<% end %>
+
+
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-4">
+       <div class="card-product">
+      <img src="https://lorempokemon.fakerapi.it/pokemon/200/<%= rand(100) %>"/>
+        <div class="card-product-infos">
+          <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+          <p><%= restaurant.category.capitalize %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-<h1>Restaurants#new</h1>
+<h1>Add a New Restaurant</h1>
 <%= simple_form_for @restaurant do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
@@ -7,6 +7,6 @@
   <%= f.submit "Add Restaurant", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to restaurants_path do%>
-  <h3><i class="fas fa-long-arrow-alt-left"> Back</i></h3>
+<% link_to restaurants_path do %>
+  <h3 class="link-dark m-3"><i class="fas fa-long-arrow-alt-left"></i> Back</h3>
 <% end %>
